@@ -1,0 +1,12 @@
+#muvr-native
+muvr-native/node_modules
+muvr-native/.DS_Store
+muvr-native/Thumbs.db
+muvr-native/*.log
+muvr-native/dist
+muvr-native/temp
+muvr-native/app/pywin32/*
+muvr-native/release
+muvr-native/app/app.js
+muvr-native/app/background.js
+muvr-native/app/**/*.map
