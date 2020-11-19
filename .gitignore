@@ -10,3 +10,12 @@ muvr-native/release
 muvr-native/app/app.js
 muvr-native/app/background.js
 muvr-native/app/**/*.map
+
+#muvr-server
+muvr-server/node_modules
+muvr-server/.DS_Store
+muvr-server/Thumbs.db
+muvr-server*.log
+muvr-server/dist
+muvr-server/app
+muvr-server/public/app/downloads/*
