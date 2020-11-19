@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>MUVR Caster</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+  <link integrity="{{{jqueryxuixcss}}}" href="jquery-ui.css" rel="stylesheet">
+  <link integrity="{{{rtcxcastercss}}}" rel="stylesheet" href="/app/webview/css/rtc_caster.css">
+  <script integrity="{{{casterxviewonlyxminxjs}}}" src="/app/webview/js/caster.min.js"></script>
+</head>
+
+<body>
+  <a href="/app/caster">
+    <img id="logo" src="/app/webview/img/logo.png"></img>
+  </a>
+  <div class="spinner hidden">
+    <div class="bar left"></div>
+    <div class="bar top"></div>
+    <div class="bar right"></div>
+    <div class="bar bottom"></div>
+  </div>
+  <!--Input settings-->
+  <fieldset id="fieldset-inputsettings">
+    <legend id="legend">Input Settings</legend>
+    <div id="inputSettings">
+      <select id="mouseAxis">
+        <option>Headset Axis Mouse (Gyroscope)</option>
+        <option>Analog Stick Mouse (Gamepad)</option>
+      </select>
+      <select id="mouseClick">
+        <option>Headphone Play/Pause Click (Plick) </option>
+        <option>Gamepad Buttons Click (Gamepad)</option>
+      </select>
+      <label for="right-analog-scroll">Gamepad Right Analog Stick for Mouse Scroll</label>
+      <input type="checkbox" name="mode" id="right-analog-scroll">
+    </div>
+  </fieldset>
+  <!--Gamepad Mappings-->
+  <fieldset id="fieldset-gamepadMappings" class="hidden">
+    <legend id="legend">Gamepad Mappings</legend>
+    <div id="activelySettingGamepadButton">
+      Press a button on your gamepad to map it to a control</div>
+    <div id="gamepadMapping">
+      <select id="buttonMapping">
+        <option>Mouse Click L</option>
+        <option>Mouse Click M</option>
+        <option>Mouse Click R</option>
+        <option>Keyboard a</option>
+        <option>Keyboard b</option>
+        <option>Keyboard c</option>
+        <option>Keyboard d</option>
+        <option>Keyboard e</option>
+        <option>Keyboard f</option>
+        <option>Keyboard g</option>
+        <option>Keyboard h</option>
+        <option>Keyboard i</option>
+        <option>Keyboard j</option>
+        <option>Keyboard k</option>
+        <option>Keyboard l</option>
+        <option>Keyboard m</option>
+        <option>Keyboard n</option>
+        <option>Keyboard o</option>
+        <option>Keyboard p</option>
+        <option>Keyboard q</option>
+        <option>Keyboard r</option>
+        <option>Keyboard s</option>
+        <option>Keyboard t</option>
+        <option>Keyboard u</option>
+        <option>Keyboard v</option>
+        <option>Keyboard w</option>
+        <option>Keyboard x</option>
+        <option>Keyboard y</option>
+        <option>Keyboard z</option>
+      </select>
+      <button id="setmappingbutton">SET BUTTON</button>
+      <button id="reloadallmappingsbutton">RELOAD ALL</button>
+      <button id="resetallmappingsbutton">RESET ALL</button>
+    </div>
+  </fieldset>
+  <fieldset id="fieldset-settings">
+    <legend id="legend">Stream Settings</legend>
+    <div id="settings">
+      <select id="Resolution">
+        <option>640x480 (VGA)</option>
+        <option>320x200 (CGA)</option>
+        <option>320x240 (QVGA)</option>
+        <option>352x288 (CIF)</option>
+        <option>384x288 (SIF**)</option>
+        <option>480x320 (HVGA)</option>
+        <option>768x576 (PAL*)</option>
+        <option>854x480 (WVGA-NTSC)</option>
+        <option>800x600 (SVGA)</option>
+        <option>1024x576 (PAL†)</option>
+        <option>1024x768 (XGA)</option>
+        <option>1280x720 (HD)</option>
+      </select>
+      <label for="view-only-mode">View Only</label>
+      <input type="radio" name="mode" id="view-only-mode">
+      <label for="activate-controls-mode">Activate Controls</label>
+      <input type="radio" name="mode" id="activate-controls-mode">
+      <select id="fps">
+        <option>30 FPS</option>
+        <option>15 FPS</option>
+        <option>45 FPS</option>
+        <option>60 FPS</option>
+      </select>
+      <button id="savebutton">START CASTING</button>
+    </div>
+  </fieldset>
+  <div id="dialog" title="Mobile Detected">
+    <p>The Caster side of MUVR.xyz is intended to be run from a computer and it has been detected you are accessing this
+      page from a mobile device.
+      Please visit this page from a computer for the best experience as many functions from the Caster should not be
+      expected to work on mobile.
+      <br></br>
+      Note: This dialog only serves as a notice of intended functionality. No code paths are disabled as a result of
+      mobile detection.
+    </p>
+  </div>
+  <!--<div id="startmenu">
+    <button id="loadstream" onclick="rtcCasterEntryPoint()">START CASTING</button>
+  </div>-->
+
+  <div id="qrModal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <p>Scan this QR code with any mobile device on the same network to connect!</p>
+      <div class="qr-connect" id="qr-connect">
+        <!--<canvas id="viewerConnectCodeCanvas" class="hidden"></canvas>-->
+        
+      </div>
+      <div id="videosContainer" style="margin: 20px 0;"></div>
+    </div>
+
+  </div>
+  <div id="inputDemo" class="inputDemo hidden">
+    <canvas width="512" height="512" id="graphCanvas"></canvas>
+    <textarea id="mouseLogs" rows="17" cols="50">
+  If you have headphones (wired or bluetooth) attached to your smartphone, try pressing the Play/Pause button to generate a "Click" event that will be logged here.
+    </textarea>
+    <textarea id="status" rows="17" cols="50">
+     Peer-to-Peer Neogotiation logs:
+    </textarea>
+    <textarea id="gamepadLogs" rows="17" cols="50">
+    If you have a gamepad controller (wired or bluetooth) attached to your smartphone, try pressing a few buttons to see the events logged here.
+    </textarea>
+
+  </div>
+  <div id="nativeStreamGrid" class="webview-stream-list">
+
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>MultiPorpoise</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+  <link rel="stylesheet" href="/app/webview/css/rtc_caster.css">
+  <script src="/app/webview/js/caster-viewonly.min.js"></script>
+</head>
+
+<body>
+  <a href="/index.html">
+    <img id="logo" src="/app/webview/img/logo.png"></img>
+  </a>
+  <div class="spinner">
+    <div class="bar left"></div>
+    <div class="bar top"></div>
+    <div class="bar right"></div>
+    <div class="bar bottom"></div>
+  </div>
+  <div id="startmenu">
+    <button id="loadstream" onclick="rtcCasterEntryPoint()">START STREAM</button>
+  </div>
+
+  <div id="qrModal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <p>Scan this QR code with any mobile device on the same network to connect!</p>
+      <canvas id="viewerConnectCodeCanvas" class="hidden"></canvas>
+      <div id="logDiv">
+        <button id="logs" onclick="displayLogs()">DISPLAY LOGS</button>
+      </div>
+      <textarea id="status" rows="16" cols="50">
+      </textarea>
+      <div id="videosContainer" style="margin: 20px 0;"></div>
+    </div>
+
+  </div>
+</body>
+
+</html>

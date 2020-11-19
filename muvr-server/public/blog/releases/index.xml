@@ -1,0 +1,82 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>MUVR – New Releases</title><link>https://muvr.xyz/blog/releases/</link><description>Recent content in New Releases on MUVR</description><generator>Hugo -- gohugo.io</generator><atom:link href="https://muvr.xyz/blog/releases/index.xml" rel="self" type="application/rss+xml"/><item><title>Blog: Native Caster Alpha Release (v0.0.1)</title><link>https://muvr.xyz/blog/2020/09/07/native-caster-alpha-release-v0.0.1/</link><pubDate>Mon, 07 Sep 2020 14:18:38 -0400</pubDate><guid>https://muvr.xyz/blog/2020/09/07/native-caster-alpha-release-v0.0.1/</guid><description>
+&lt;p>Today I release the Alpha (0.0.1) version of the MUVR Native Caster&lt;/p>
+&lt;h1 id="downloads">Downloads&lt;/h1>
+&lt;ul>
+&lt;li>Windows (x64)
+&lt;ul>
+&lt;li>&lt;a href="https://muvr.xyz/app/downloads/Windows/MUVR%20Native%20Caster%200.0.1.zip" title="MUVR Native Caster 0.0.1.zip">MUVR Native Caster 0.0.1.zip&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://muvr.xyz/app/downloads/Windows/MUVR%20Native%20Caster%20Setup%200.0.1.exe" title="MUVR Native Caster Setup 0.0.1.exe">MUVR Native Caster Setup 0.0.1.exe&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Linux (x64)
+&lt;ul>
+&lt;li>&lt;a href="https://muvr.xyz/app/downloads/Linux/MUVR%20Native%20Caster-0.0.1.AppImage" title="MUVR Native Caster-0.0.1.AppImage">MUVR Native Caster-0.0.1.AppImage&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://muvr.xyz/app/downloads/Linux/MUVR_0.0.1_amd64.snap" title="MUVR_0.0.1_amd64.snap">MUVR_0.0.1_amd64.snap&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>MacOS (x64)
+&lt;ul>
+&lt;li>&lt;a href="https://muvr.xyz/app/downloads/MacOS/MUVR%20Native%20Caster-0.0.1-mac.zip" title="MUVR Native Caster-0.0.1-mac.zip">MUVR Native Caster-0.0.1-mac.zip&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://muvr.xyz/app/downloads/MacOS/MUVR%20Native%20Caster-0.0.1.dmg" title="MUVR Native Caster-0.0.1.dmg">MUVR Native Caster-0.0.1.dmg&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h1 id="features">Features&lt;/h1>
+&lt;ul>
+&lt;li>Control Mouse using Gyroscope on your mopbile device&lt;/li>
+&lt;li>Control Mouse using Left Analog Stick of a gamepad paired to your mobile device&lt;/li>
+&lt;li>Control Mouse scrolling using Right Analog Stick of a gamepad paired to your mobile device&lt;/li>
+&lt;li>Map Gamepad buttons to keyboard keys or left/right/middle click&lt;/li>
+&lt;li>Gyroscope controls automatically scope to the active casting window and window boundaries are set accordingly&lt;/li>
+&lt;/ul>
+&lt;h1 id="known-bugs">Known Bugs&lt;/h1>
+&lt;ul>
+&lt;li>Desktops running multiple screens will encounter incorrect mouse coordinates
+&lt;ul>
+&lt;li>This will be fixed in a future release. For now, only a single screen is supported.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Security Settings interfering
+&lt;ul>
+&lt;li>Windows
+&lt;ul>
+&lt;li>Windows Firewall will prompt to set a new rule to allow P2P communication. This will be included in setup in a future release.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>MacOS
+&lt;ul>
+&lt;li>System Preferences will prompt to allow Screen Sharing&lt;/li>
+&lt;li>System Preferences will prompt to allow Destop Interaction&lt;/li>
+&lt;li>Both must be allowed and the application restarted.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Video Stream shows blank
+&lt;ul>
+&lt;li>The main causes of this are:
+&lt;ul>
+&lt;li>Caster or Client behind a double NAT&amp;rsquo;d network.&lt;/li>
+&lt;li>Selected stream resolution did not fall back correctly or is an unsupported resolution for the selected window&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Mouse stays locked to one side of the screen
+&lt;ul>
+&lt;li>Try facing North, South, East and West. For an unknown reason the point of reference when the client connects is sometimes altered.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h1 id="report-additional-bugs">Report Additional Bugs&lt;/h1>
+&lt;p>If you find additional bugs or want to provide feedback, please open and issue on &lt;a href="https://github.com/xen0bit/muvr.xyz/issues">https://github.com/xen0bit/muvr.xyz/issues&lt;/a>&lt;/p></description></item><item><title>Blog: Web Alpha Release</title><link>https://muvr.xyz/blog/2020/06/21/web-alpha-release/</link><pubDate>Sun, 21 Jun 2020 21:06:23 -0400</pubDate><guid>https://muvr.xyz/blog/2020/06/21/web-alpha-release/</guid><description>
+&lt;p>Today, I&amp;rsquo;ve launched the &lt;strong>Web&lt;/strong> Alpha Release. This proof of conecpt showcases how far I&amp;rsquo;ve managed to bring MUVR.&lt;/p>
+&lt;p>The demo is vailable &lt;a href="https://muvr.xyz/app/caster/">HERE&lt;/a>.&lt;/p>
+&lt;p>Alpha Showcases:&lt;/p>
+&lt;ol>
+&lt;li>Screen/Window/Game Capture&lt;/li>
+&lt;li>Gamepad API Passthrough&lt;/li>
+&lt;li>Headphone passthrough events&lt;/li>
+&lt;li>3 Degrees-of-Freedom gyroscope based controls&lt;/li>
+&lt;/ol>
+&lt;p>More documentation will be provided in the next few days.&lt;/p></description></item></channel></rss>
