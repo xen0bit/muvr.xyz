@@ -1,7 +1,0 @@
-win32:
-pip3 install pyinstaller
-pyinstaller --onefile win32_getWindowRect.py
-
-linux:
-pip3 install pyinstaller
-pyinstaller --onefile linux_getWindowRect.py
