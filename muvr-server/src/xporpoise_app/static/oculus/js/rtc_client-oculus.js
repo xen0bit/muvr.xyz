@@ -302,7 +302,7 @@ function sendPairingEmail(toAddress, roomId) {
     $.post("/api/email",
         {
             toAddress: toAddress,
-            urlToSend: "https://" + document.domain + "/app/caster#" + roomId
+            room: roomId
         }).done(function (data) {
             console.log('Sent Email')
         });

@@ -50,8 +50,9 @@ async function sendMail(toAddress, urlToSend) {
   }
 
 router.post('/api/email', jsonParser, function (req, res) {
-    console.log(req.body.toAddress, req.body.urlToSend);
-    sendMail(req.body.toAddress, req.body.urlToSend).catch(console.error);
+    console.log(req.body.toAddress, req.body.room);
+    var urlToSend = "https://" + config.tld + "/app/caster#" + req.body.room;
+    sendMail(req.body.toAddress, urlToSend).catch(console.error);
     res.send('OK');
 });
 
