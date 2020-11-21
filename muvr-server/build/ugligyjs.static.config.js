@@ -2,7 +2,7 @@ var UglifyJS = require('uglify-es');
 var JavaScriptObfuscator = require('javascript-obfuscator');
 var fs = require('fs');
 
-var debug = false;
+var debug = true;
 
 function buildWebviewCaster() {
     var uglifySettings;
@@ -91,18 +91,17 @@ function buildWebviewCaster() {
 
     //Build Licensed Code
     console.log(licensed.warnings);
-    if (licensed.error) {
+    if (licensed.error !== undefined) {
         console.log(licensed.error);
     }
     else {
         //Prepend to expose Jquery to Electron
         licensed.code = "if (typeof module === 'object') { window.module = module; module = undefined; }" + licensed.code;
-        //licnesed.code = licnesed.code + "if (window.module) module = window.module;"
     }
 
     //Build homemade code
     console.log(homemade.warnings);
-    if (homemade.error) {
+    if (homemade.error !== undefined) {
         console.log(homemade.error);
     }
     else {
@@ -227,13 +226,13 @@ function buildWebviewClient() {
 
     //Build Licensed Code
     console.log(licensed.warnings);
-    if (licensed.error) {
+    if (licensed.error !== undefined) {
         console.log(licensed.error);
     }
 
     //Build homemade code
     console.log(homemade.warnings);
-    if (homemade.error) {
+    if (homemade.error !== undefined) {
         console.log(homemade.error);
     }
     else {
@@ -356,13 +355,13 @@ function buildWebviewOculus() {
 
     //Build Licensed Code
     console.log(licensed.warnings);
-    if (licensed.error) {
+    if (licensed.error !== undefined) {
         console.log(licensed.error);
     }
 
     //Build homemade code
     console.log(homemade.warnings);
-    if (homemade.error) {
+    if (homemade.error !== undefined) {
         console.log(homemade.error);
     }
     else {

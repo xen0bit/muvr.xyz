@@ -2,7 +2,7 @@
 var connection = new RTCMultiConnection();
 //var store = localStorage;
 
-var debug = false;
+var debug = true;
 if (debug == false) {
     //redirect info messages to visible text box
     console.info = function () {

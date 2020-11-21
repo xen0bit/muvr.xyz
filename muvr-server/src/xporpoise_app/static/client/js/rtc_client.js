@@ -1,5 +1,5 @@
 
-var debug = false;
+var debug = true;
 
 if (debug == true) {
     window.onerror = function (errorMsg, url, lineNumber) {
