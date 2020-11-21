@@ -10,9 +10,9 @@ if (debug == true) {
 
 function displayModeSingle() {
     var videor = $('#videor');
-    videor.remove();
     var videol = $('#videol');
-    videol.css('max-width', '100%');
+    videol.remove();
+    videor.css('max-width', '100%');
     var content = $('#content');
     content.css('width', '100%');
 }
@@ -77,23 +77,16 @@ var loadstream = function (displayMode) {
 
     connection.videosContainer = document.getElementById('videos-container');
     connection.onstream = function (event) {
-        console.log('onstream tirggers');
-        var existing = document.getElementById(event.streamid);
-        if (existing && existing.parentNode) {
-            existing.parentNode.removeChild(existing);
+        console.log('onstream triggers');
+        //Detect stream reloading and do not duplicate videos
+        var videoCount = $('video').length;
+        if (videoCount != 0) {
+            $('#videol').remove();
+            $('#videor').remove();
         }
-
-        event.mediaElement.removeAttribute('src');
-        event.mediaElement.removeAttribute('srcObject');
-        event.mediaElement.muted = true;
-        event.mediaElement.volume = 0;
 
         var videol = document.createElement('video');
         var videor = document.createElement('video');
-        var newVideo = document.createElement('a-video');
-        var assets = document.querySelector('a-assets');
-
-        //video.id = 'multiporpoisevideo';
 
         try {
             //video.setAttributeNode(document.createAttribute('autoplay'));
@@ -109,36 +102,25 @@ var loadstream = function (displayMode) {
             videor.setAttribute('controls', true);
         }
 
-        if (event.type === 'local') {
-            videol.volume = 0;
-            videor.volume = 0;
-            try {
-                //video.setAttributeNode(document.createAttribute('muted'));
-            } catch (e) {
-                //video.setAttribute('muted', true);
-            }
-        }
-
         videol.id = "videol";
         videor.id = "videor";
 
-
-        //assets.appendChild(video);
         connection.videosContainer.appendChild(videol);
         connection.videosContainer.appendChild(videor);
 
-        //video.addEventListener('loadeddata', () => {
-
-
-        // Pointing this aframe entity to that video as its source
-        //newVideo.setAttribute('src', `#multiporpoisevideo`);
-        //newVideo.setAttribute('position', '0 0 -0.35');
-        //document.getElementById('cameraview').appendChild(newVideo);
-        //});
         console.log(event.stream);
         videol.srcObject = event.stream;
         videor.srcObject = event.stream;
         videol.play();
+        //Mute the left video so it doesn't pause when the right video loads
+        //Only one Video element on page can play audio
+        videol.volume = 0;
+        try {
+            videol.setAttributeNode(document.createAttribute('muted'));
+            videol.muted = true;
+        } catch (e) {
+            videol.setAttribute('muted', true);
+        }
         videor.play();
 
         //Handle Single Display Mode
@@ -153,19 +135,6 @@ var loadstream = function (displayMode) {
             connection.send({ "rotationevent": camera.rotation });
         });
 
-        //Wired and Bluetooth Gamepad API events
-
-        // joypad.set({
-        //     axisMovementThreshold: 0.3
-        // });
-
-        // joypad.on('axis_move', function (e) {
-        //     connection.send({ "gamepadAxisMove": e.detail });
-        // });
-
-        // joypad.on('button_press', function (e) {
-        //     connection.send({ "gamepadButtonPress": e.detail });
-        // });
         gamepadInput.buttonCallbackFunction = function (e) {
             connection.send({ "gamepadButtonPress": e.detail });
         };
@@ -268,30 +237,30 @@ function zoomin() {
 
 //Load and manipulate UI
 function userInitiatedLoadStream() {
-        if (typeof DeviceOrientationEvent.requestPermission === 'function') {
-            DeviceOrientationEvent.requestPermission().then(function () {
-                //Get displaymode
-                var displayMode = $('#displayMode').val();
-                //Remove start stream button
-                document.getElementById('fieldset-displaysettings').remove();
-                //Remove Logo
-                document.getElementById('logo').remove();
-                //Attach headphone input
-                boopClickHeadphone.registerMainLoop(function (clickDown) {
-                    connection.send({ "clickDown": clickDown });
-                });
-                //Sign message that authenticates client
-                //RTC Connect and setup up video elemts
-                if (!displayMode.includes('Default')) {
-                    loadstream('Single');
-                }
-                else {
-                    loadstream('Double');
-                }
+    if (typeof DeviceOrientationEvent.requestPermission === 'function') {
+        DeviceOrientationEvent.requestPermission().then(function () {
+            //Get displaymode
+            var displayMode = $('#displayMode').val();
+            //Remove start stream button
+            document.getElementById('fieldset-displaysettings').remove();
+            //Remove Logo
+            document.getElementById('logo').remove();
+            //Attach headphone input
+            boopClickHeadphone.registerMainLoop(function (clickDown) {
+                connection.send({ "clickDown": clickDown });
+            });
+            //Sign message that authenticates client
+            //RTC Connect and setup up video elemts
+            if (!displayMode.includes('Default')) {
+                loadstream('Single');
+            }
+            else {
+                loadstream('Double');
+            }
 
-                //Connect to websocket and move mouse
-                //connectAndEmitRotationEvents();
-            })
+            //Connect to websocket and move mouse
+            //connectAndEmitRotationEvents();
+        })
     }
     else {
         //Get displaymode
@@ -330,6 +299,8 @@ $(document).ready(function () {
     $("#connect").on("click", function () {
         userInitiatedLoadStream();
     });
+    //Hacky workaround to enforce url bar disappears when ihpone rotated
+    $('body').css('min-height', $(window).height() + 50 + "px");
 
 });
 

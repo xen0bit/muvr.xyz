@@ -445,7 +445,7 @@ function getStreamConstraints(webOrNative) {
     //return JSON.parse(store.getItem('streamConstraints'))
     if (webOrNative == 'web') {
         var webDefault = {
-            audio: false,
+            audio: true,
             video: true
         };
         if (store.getItem('streamConstraints')) {
