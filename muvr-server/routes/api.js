@@ -3,6 +3,7 @@ var bodyParser = require('body-parser');
 var QRCode = require('qrcode');
 const nodemailer = require("nodemailer");
 var router = express.Router();
+var config = require('../config/env_production.js');
 
 var jsonParser = bodyParser.json()
 
@@ -31,8 +32,8 @@ async function sendMail(toAddress, urlToSend) {
       port: 465,
       secure: true, // true for 465, false for other ports
       auth: {
-        user: "apikey", // generated ethereal user
-        pass: "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", // generated ethereal password
+        user: config.sendGridUser, // generated ethereal user
+        pass: config.sendGridPass, // generated ethereal password
       },
     });
   

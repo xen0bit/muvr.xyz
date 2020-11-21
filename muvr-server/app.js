@@ -23,7 +23,7 @@ app.use(cookieParser());
 
 app.use('/', api);
 app.use(express.static(path.join(__dirname, 'public'), {
-    maxage: '2h'
+    maxage: '0h'
 }));
 
 
