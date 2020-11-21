@@ -248,16 +248,6 @@ var loadstream = function (displayMode) {
 
 };
 
-function detectiOS13() {
-    //iPhone OS 13_
-    if (navigator.userAgent.includes('iPhone OS 13_')) {
-        return true;
-    }
-    else {
-        return false;
-    }
-}
-
 function zoomout() {
     var currHeight = Number($('#videol').css('max-width').split('%')[0]);
     var newHeight = (currHeight - 5) + '%';
@@ -278,7 +268,6 @@ function zoomin() {
 
 //Load and manipulate UI
 function userInitiatedLoadStream() {
-    if (detectiOS13()) {
         if (typeof DeviceOrientationEvent.requestPermission === 'function') {
             DeviceOrientationEvent.requestPermission().then(function () {
                 //Get displaymode
@@ -303,7 +292,6 @@ function userInitiatedLoadStream() {
                 //Connect to websocket and move mouse
                 //connectAndEmitRotationEvents();
             })
-        }
     }
     else {
         //Get displaymode

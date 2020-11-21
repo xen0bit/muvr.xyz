@@ -41,7 +41,7 @@ var settings = (function () {
                 "zoom": true
             };
             var streamConstraints = {
-                audio: false,
+                audio: true,
                 video: {
                 }
             };
