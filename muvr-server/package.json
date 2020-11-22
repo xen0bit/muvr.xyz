@@ -1,6 +1,6 @@
 {
-  "name": "xporpoise-server",
-  "productName": "xporpoise-server",
+  "name": "muvr-server",
+  "productName": "muvr-server",
   "description": "Multi-Purpose Desktop driven VR applications",
   "version": "0.0.0",
   "private": true,

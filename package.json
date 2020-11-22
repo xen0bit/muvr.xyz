@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "installer": "cd ./muvr-dia && npm install && cd ../muvr-native && npm install && cd ../muvr-server && npm install && cd ./muvr-hugo && npm install && cd ../..",
-    "build-windows": "@powershell -NoProfile -ExecutionPolicy Unrestricted -Command ./build-windows.ps1",
-    "build-linux": "go build -x -o ./linux/muvr-dia muvr-dia.go && chmod +x ./linux/muvr-dia",
+    "build-windows": "cd ./muvr-server && npm run build-all && cd ../muvr-dia && npm run build-windows && npm run package && cd ../muvr-native && npm run muvr-dia-install && npm run release && cd ..",
+    "build-linux": "cd ./muvr-server && npm run build-all && cd ../muvr-dia && npm run build-linux && npm run package && cd ../muvr-native && npm run muvr-dia-install && npm run release && cd ..",
     "build-macos": "go build -x -o ./macos/muvr-dia muvr-dia.go && chmod +x ./macos/muvr-dia"
   },
   "repository": {

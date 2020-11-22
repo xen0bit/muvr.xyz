@@ -9,7 +9,7 @@ window.muvrNative = true;
 //export desktopCapturer to browser window
 window.ElectronDesktopCapturer = require('electron').desktopCapturer;
 //export xgo module to window
-window.xgo = require('xgo').cmd;
+window.xgo = require('muvr-dia').cmd;
 var desktopInput = xgo.init();
 // desktopInput.then(function () {
 //     console.log(xgo);
