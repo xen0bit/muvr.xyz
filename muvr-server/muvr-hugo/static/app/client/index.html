@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>MUVR Client</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+  <meta name="mobile-web-app-capable" content="yes">
+  <link integrity="{{{jqueryxuixcss}}}" href="jquery-ui.css" rel="stylesheet">
+  <link integrity="{{{rtcxviewerxvrxcss}}}" rel="stylesheet" href="/app/webview/css/rtc_viewer_vr.css">
+  <script integrity="{{{clientxviewonlyxminxjs}}}" src="/app/webview/js/client.min.js"></script>
+</head>
+
+<body>
+  <img id="logo" src="/app/webview/img/logo.png"></img>
+  <!--Display settings-->
+  <fieldset id="fieldset-displaysettings">
+    <legend id="legend">Display Settings</legend>
+    <div id="displaySettings">
+      <select id="displayMode">
+        <option>Stereoscopic (Default VR)</option>
+        <option>Mono (Singular FullScreen)</option>
+      </select>
+      <button id="connect">CONNECT</button>
+    </div>
+  </fieldset>
+  <!--
+  <div id="startmenu">
+    <button id="loadstream" onclick="userInitiatedLoadStream()">CONNECT</button>
+  </div>
+-->
+  <div id="content">
+    <div id="videos-container" style=""></div>
+  </div>
+</body>
+
+</html>
