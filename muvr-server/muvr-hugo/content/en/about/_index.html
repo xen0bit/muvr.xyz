@@ -1,0 +1,60 @@
+---
+title: About MUVR
+linkTitle: About
+menu:
+  main:
+    weight: 10
+
+---
+
+
+{{< blocks/cover title="About MUVR" image_anchor="bottom" height="min" >}}
+
+<p class="lead mt-5">Milestones and Goals!
+</p>
+
+{{< /blocks/cover >}}
+
+{{% blocks/lead %}}
+## Milestones
+As the clock rolls over 1000 hours spent developing MUVR, it's important to reflect upon the important milestones and implementation decisions that lead to a realistic product.
+
+* Protocols
+----------------
+* [WebRTC](https://webrtc.org/) was chosen for it's versatile and robust Real-Time communication capabilities utilizing ICE and STUN for NAT traversal.
+* [socket.io](https://socket.io/) was chosen for use in WebRTC session establishment and signaling that supports WebSockets and XHR based fallbacks.
+* Enforced H.264 video coding due to prominence of hardware accelerated decoding even in older devices to extend battery life.
+* [HAProxy](http://www.haproxy.org/) was chosen for it's lightweight and versatile nature. Straightforward Layer 3 implementation made WebRTC signaling easy.
+* [Let's Encrypt](https://letsencrypt.org/) Free certificates, automated renewal (with zero downtime thanks to HAProxy).
+* [AutoSSH](https://linux.die.net/man/1/autossh) allows me to run my server cluster within my own home while caching all responses in the OVH hosted frontend; significantly lowering costs.
+----------------
+* Client Application
+----------------
+* [CSS3](https://www.w3.org/Style/CSS/Overview.en.html) was for it's powerful (and often GPU backed) performant transforms and wide compatibility for applying styles to video elements.
+* [Gamepad API](https://developer.mozilla.org/en-US/docs/Web/API/Gamepad_API) for great and well documented support of many different gamepads.
+* [three.js](https://threejs.org/) for high accuracy calculations for creating a virtual [frustrum](https://en.wikipedia.org/wiki/Frustum) to map DeviceOrientation to an x,y coordinate on a plane of dynamic dimensions.
+----------------
+* Caster Application
+----------------
+* [adapter.js](https://github.com/webrtcHacks/adapter) for it's shim to insulate apps from spec changes and prefix differences.
+* [qrcode.js](https://davidshimjs.github.io/qrcodejs/) for it's ability to generate QR codes for pairing that specify a correction level to prevent incorrect scans of large URL's.
+* [WebGL](https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API) for it's GPU backed operations. While not fully compatible for all browsers, it offers some immense benefits and will be key in the future.
+----------------
+* Native Caster Application
+----------------
+* [Electron](https://www.electronjs.org/) for it's ability to package web based applications with a cross-platform nature as well as integrate seamlessly with native applications.
+* [Go](https://golang.org/) for it's high level concurrency and cross platform nature. Go powers the native device input.
+{{% /blocks/lead %}}
+
+
+
+{{% blocks/section %}}
+## Goals
+* Provide documentation
+* Release Native Caster Applications for Windows, Linux (x64, ARVv7/v8), and macOS
+* Implement automatic latency optimization
+* Implement Accessibility options
+* Scale hosting services
+* Native Caster configurations for games that capure the mouse pointer such as first person shooters
+
+{{% /blocks/section %}}

@@ -1,0 +1,90 @@
+body{
+  background: #222;
+  margin: 0;
+}
+
+a {
+  color: #FFFFFF;
+}
+
+/*Logo Styles*/
+#logo{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 40%;
+}
+
+.main-title {
+  color: #FFFFFF;
+  font-size: 32px;
+  text-align: center;
+}
+/*Resolution and framerate selectors*/
+.selectors {
+  text-align: center;
+  padding: 10px;
+}
+
+.selectors > div{
+  display: inline-block;
+}
+
+.selector {
+  width: 200px;
+}
+
+/*SaveButton*/
+.save-button {
+  color: #FFFFFF;
+  background-color: #2fcc76;
+  border-color: #2fcc76;
+}
+
+/*Screen capture grid styles*/
+.mode-options {
+  color: #FFFFFF;
+  display: grid;
+  grid-template-columns: repeat(3, 33%);
+  grid-template-rows: repeat(1, 200px);
+  grid-gap: 3px;
+}
+
+.mode-options > .xporpoise-option{
+  display: block;
+  border-style: solid;
+  border-color: #2fcc76;
+  text-align: left;
+}
+
+.xporpoise-option-image{
+  margin-left: auto;
+  margin-right: auto;
+  float: right;
+  display: flex;
+  height: 75px;
+  width: 75px;
+}
+
+/*Disabled features*/
+.disabled > a {
+  color: #6E6E6E;
+}
+
+.coming-soon {
+  background-color: #6E6E6E;
+  color: yellow;
+  float: right;
+  transform: rotate(45deg) translateY(15px) translateX(24px);
+  max-height: 46px;
+  box-shadow: -3px -3px 38px #888888;
+}
+
+.available {
+  background-color: #6E6E6E;
+  color: #2fcc76;
+  float: right;
+  transform: rotate(45deg) translateY(15px) translateX(24px);
+  max-height: 46px;
+  box-shadow: -3px -3px 38px #888888;
+}

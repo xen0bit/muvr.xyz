@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>MUVR Oculus Client</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+  <meta name="mobile-web-app-capable" content="yes">
+  <link integrity="sha256-3Qb+9rcgEQpHtYtg/GSOnRkn5HXxv3FyxwnlGphSEv0=" href="jquery-ui.css" rel="stylesheet">
+  <link integrity="sha256-vt5Drbz9bDfpSY9ymUabj6QDb0MWLnfnsUFJkurOQHY=" rel="stylesheet" href="/app/webview/css/rtc_viewer_vr.css">
+  <script integrity="sha256-7HnQXY7A+kKVqrLS+DuMu0ypnwaDqI2ppquThqJUpXU=" src="/app/webview/js/oculus.min.js"></script>
+</head>
+
+<body>
+  <img id="logo" src="/app/webview/img/logo.png"></img>
+  <div class="spinner hidden">
+    <div class="bar left"></div>
+    <div class="bar top"></div>
+    <div class="bar right"></div>
+    <div class="bar bottom"></div>
+  </div>
+  <!--Display settings-->
+  <fieldset id="fieldset-displaysettings">
+    <legend id="legend">Send Dekstop Pairing Request</legend>
+    <div id="displaySettings">
+      <input id="autocomplete" placeholder="Enter email address here" title="Email" class="ui-autocomplete-input ui-widget ui-controlgroup-item ui-corner-all ui-button">
+      <button id="connect">CONNECT</button>
+    </div>
+  </fieldset>
+  <!--
+  <div id="startmenu">
+    <button id="loadstream" onclick="userInitiatedLoadStream()">CONNECT</button>
+  </div>
+-->
+  <div id="content">
+    <div id="videos-container" style=""></div>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,36 @@
+{
+  "name": "muvr.xyz",
+  "version": "1.0.0",
+  "description": "Multi-Use Virtual Reality",
+  "main": "index.js",
+  "scripts": {
+    "installer": "cd ./muvr-dia && npm install && cd ../muvr-native && npm install && cd ../muvr-server && npm install && cd ./muvr-hugo && npm install && cd ../..",
+    "build-windows": "cd ./muvr-server && npm run build-all && cd ../muvr-dia && npm run build-windows && npm run package && cd ../muvr-native && npm run muvr-dia-install && npm run release && cd ..",
+    "build-linux": "cd ./muvr-server && npm run build-all && cd ../muvr-dia && npm run build-linux && npm run package && cd ../muvr-native && npm run muvr-dia-install && npm run release && cd ..",
+    "build-macos": "cd ./muvr-server && npm run build-all && cd ../muvr-dia && npm run build-macos && npm run package && cd ../muvr-native && npm run muvr-dia-install && npm run release && cd .."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xen0bit/muvr.xyz.git"
+  },
+  "keywords": [
+    "vr",
+    "virtual",
+    "reality",
+    "webrtc",
+    "go",
+    "golang",
+    "hugo",
+    "nodejs",
+    "electron",
+    "cross-platform",
+    "cross",
+    "platform"
+  ],
+  "author": "Matthew Remacle",
+  "license": "© 2019 Matthew Remacle",
+  "bugs": {
+    "url": "https://github.com/xen0bit/muvr.xyz/issues"
+  },
+  "homepage": "https://github.com/xen0bit/muvr.xyz#readme"
+}
