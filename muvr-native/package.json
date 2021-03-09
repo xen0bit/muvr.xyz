@@ -44,7 +44,7 @@
     "babel-loader": "^8.2.1",
     "chai": "^4.1.0",
     "css-loader": "^3.6.0",
-    "electron": "^8.5.5",
+    "electron": "^9.4.0",
     "electron-builder": "^22.9.1",
     "electron-mocha": "^8.2.2",
     "electron-rebuild": "^1.11.0",
