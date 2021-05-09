@@ -47,7 +47,7 @@
     "uws": "^100.0.1"
   },
   "devDependencies": {
-    "handlebars": "^4.7.6",
+    "handlebars": "^4.7.7",
     "install": "^0.13.0",
     "javascript-obfuscator": "^1.12.1",
     "npm": "^6.14.8",
