@@ -51,7 +51,7 @@
     "install": "^0.13.0",
     "javascript-obfuscator": "^1.12.1",
     "npm": "^6.14.8",
-    "style-loader": "^0.23.1",
+    "style-loader": "^3.3.1",
     "uglify-es": "^3.3.9",
     "webrtc-adapter": "^7.7.0"
   }
